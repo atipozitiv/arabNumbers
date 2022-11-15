@@ -1,0 +1,41 @@
+/**********************************
+* ПИ-221                          *
+* Иванов Тимофей                  *
+* Перевод из римских в арабские   *
+* 10.11.2022                      *
+**********************************/
+
+https://www.onlinegdb.com/UL0jp0Fqox
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+  string alphabet = "IVXLCDM";
+  int arabAlphabet[7] = {1, 5, 10, 50, 100, 500, 1000};
+  string digit;
+  int result = 0;
+  cout << "Введите римское число: ";
+  cin >> digit;
+  
+  
+  while (digit.length() > 1) {
+    if (alphabet.find(digit[0]) >= alphabet.find(digit[1])) {
+      result +=  arabAlphabet[alphabet.find(digit[0])];
+      digit.erase(0,1);                   //удаляем первое число из digit
+    }
+    
+    else {
+      result += arabAlphabet[alphabet.find(digit[1])] - arabAlphabet[alphabet.find(digit[0])];
+      digit.erase(0,2);
+    }
+  }
+  
+  if (digit.length() == 1){
+    result += arabAlphabet[alphabet.find(digit[0])];
+  }
+  
+  cout << result;
+  return 0;
+}
