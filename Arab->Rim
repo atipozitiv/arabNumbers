@@ -1,0 +1,43 @@
+/**********************************
+* ПИ-221                          *
+* Иванов Тимофей                  *
+* Перевод из арабских в римские   *
+* 10.11.2022                      *
+**********************************/
+
+https://www.onlinegdb.com/RQqMbn5um
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+string result = "";
+int digit;
+
+void translation(string symbol, int number) {
+  while (digit >= number) {
+    result += symbol;
+    digit -= number;
+  }
+}
+
+int main() {
+  cout << "Введите число для перевода: ";
+  cin >> digit;
+  
+  translation("M", 1000);
+  translation("CM", 900);
+  translation("D", 500);
+  translation("CD", 400);
+  translation("C", 100);
+  translation("XC", 90);
+  translation("L", 50);
+  translation("XL", 40);
+  translation("X", 10);
+  translation("IX", 9);
+  translation("V", 5);
+  translation("IV", 4);
+  translation("I", 1);
+  cout << result;
+  return 0;
+}
